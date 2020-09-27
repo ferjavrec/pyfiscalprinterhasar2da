@@ -1,4 +1,11 @@
-# -*- coding: iso-8859-1 -*-
+# !/usr/bin/env python
+# -*- coding: utf-8 -*-
+
+__author__ = "Fernando Recci <<Geneos>> <fernando.recci@geneos.com.ar>"
+__copyright__ = "Copyright (C) 2020 GENEOS http://www.geneos.com.ar/"
+__license__ = "GPL 3.0"
+__version__ = "1.00"
+
 import datetime
 import string
 import logging
@@ -96,36 +103,36 @@ def invalid_utf8_indexes(bytes):
 
 def formatText(text):
     text = valid_utf8_bytes(text)
-    text = text.replace('·', 'a')
-    text = text.replace('È', 'e')
-    text = text.replace('Ì', 'i')
-    text = text.replace('Û', 'o')
-    text = text.replace('˙', 'u')
-    text = text.replace('¡', 'A')
-    text = text.replace('…', 'E')
-    text = text.replace('Õ', 'I')
-    text = text.replace('”', 'O')
-    text = text.replace('⁄', 'U')
-    text = text.replace('ƒ', 'A')
-    text = text.replace('À', 'E')
-    text = text.replace('œ', 'I')
-    text = text.replace('÷', 'O')
-    text = text.replace('‹', 'U')
-    text = text.replace('‰', 'a')
-    text = text.replace('Î', 'e')
-    text = text.replace('Ô', 'i')
-    text = text.replace('ˆ', 'o')
-    text = text.replace('¸', 'u')
-    text = text.replace('Ò', 'n')
-    text = text.replace('—', 'N')
+    text = text.replace('√°', 'a')
+    text = text.replace('√©', 'e')
+    text = text.replace('√≠', 'i')
+    text = text.replace('√≥', 'o')
+    text = text.replace('√∫', 'u')
+    text = text.replace('√Å', 'A')
+    text = text.replace('√â', 'E')
+    text = text.replace('√ç', 'I')
+    text = text.replace('√ì', 'O')
+    text = text.replace('√ö', 'U')
+    text = text.replace('√Ñ', 'A')
+    text = text.replace('√ã', 'E')
+    text = text.replace('√è', 'I')
+    text = text.replace('√ñ', 'O')
+    text = text.replace('√ú', 'U')
+    text = text.replace('√§', 'a')
+    text = text.replace('√´', 'e')
+    text = text.replace('√Ø', 'i')
+    text = text.replace('√∂', 'o')
+    text = text.replace('√º', 'u')
+    text = text.replace('√±', 'n')
+    text = text.replace('√ë', 'N')
     text = text.replace('\\', ' ')
     text = text.replace('\'', ' ')
-    text = text.replace('∫', ' ')
+    text = text.replace('¬∫', ' ')
     text = text.replace('"', ' ')
     text = text.replace('|', ' ')
-    text = text.replace('ø', ' ')
-    text = text.replace('°', ' ')
-    text = text.replace('™', ' ')
+    text = text.replace('¬ø', ' ')
+    text = text.replace('¬°', ' ')
+    text = text.replace('¬™', ' ')
     return text
 
 
@@ -257,7 +264,7 @@ class Hasar2GenPrinter:
             deviceFile = deviceFile or 0
             self.driver = epsonFiscalDriver.HasarFiscalDriver(deviceFile, speed)
         except Exception, e:
-            raise FiscalPrinterError("Imposible establecer comunicaciÛn.", e)
+            raise FiscalPrinterError("Imposible establecer comunicaci√≥n.", e)
         self.model = model
 
 
@@ -301,7 +308,7 @@ class Hasar2GenPrinter:
         x = int(printerStatus)
         if x != 0:
             if x == 8030:
-                ret.append("Poco papel para la cinta de auditorÌa")
+                ret.append("Poco papel para la cinta de auditor√≠a")
             if x == 8008:
                 ret.append("Impresora fuera de linea")
             if x == 8100:
@@ -414,7 +421,7 @@ class Hasar2GenPrinter:
 
         if responsabilidadIVA != "C" and (not doc or tipodocumento != self.DOC_TYPE_CUIT):
             raise ValidationError("Error, si el tipo de IVA del cliente NO es consumidor final, "
-                "debe ingresar su n˙mero de CUIT.")
+                "debe ingresar su n√∫mero de CUIT.")
 
         parametros = [formatText(razonsocial),
                        doc or " ",
