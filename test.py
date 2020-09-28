@@ -43,7 +43,7 @@ if __name__ == "__main__":
 	#imprimirFacturaA(printer)
 	#printer.cancelarCualquierDocumento()
 	#print printer.consultarFechaHora()
-	#print printer.cerrarJornadaFiscal('Z')
+	print printer.cerrarJornadaFiscal('X')
 	#print printer.configurarFechaHora()
 	#print printer.configurarZona(1,'2','LA CATEDRAL', printer.ESTACION_POR_DEFECTO, printer.ZONA_FANTASIA)
 	#print printer.configurarZona(1, '0', 'Malere 885 - Azul', printer.ESTACION_POR_DEFECTO, printer.ZONA_DOMICILIO_EMISOR)
@@ -52,7 +52,7 @@ if __name__ == "__main__":
 	#print printer.copiarComprobante(printer.CPROB_TIQUE,'5')
 	#print printer.pedirReimpresion()
 
-	cargarDatosCliente(printer)
+	#cargarDatosCliente(printer)
 	#print printer.abrirTicketNC('B')
 	#printer.abrirTicketFactura('B')
 

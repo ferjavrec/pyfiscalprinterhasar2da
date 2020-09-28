@@ -10,7 +10,7 @@ import datetime
 import string
 import logging
 from array import array
-import epsonFiscalDriver
+import CFiscalDriver
 
 
 class ValidationError(Exception):
@@ -262,7 +262,7 @@ class Hasar2GenPrinter:
     def __init__(self, deviceFile=None, speed=9600, model='1000', connectOnEveryCommand=False):
         try:
             deviceFile = deviceFile or 0
-            self.driver = epsonFiscalDriver.HasarFiscalDriver(deviceFile, speed)
+            self.driver = CFiscalDriver.HasarFiscalDriver(deviceFile, speed)
         except Exception, e:
             raise FiscalPrinterError("Imposible establecer comunicación.", e)
         self.model = model
@@ -277,7 +277,7 @@ class Hasar2GenPrinter:
             ret = self.driver.sendCommand(commandNumber, parameters, skipStatusErrors)
             logging.getLogger().info("reply: %s" % ret)
             return ret
-        except epsonFiscalDriver.PrinterException, e:
+        except CFiscalDriver.PrinterException, e:
             logging.getLogger().error("epsonFiscalDriver.PrinterException: %s" % str(e))
             raise PrinterException("Error de la impresora fiscal: %s.\nComando enviado: %s" % \
                 (str(e), commandString))

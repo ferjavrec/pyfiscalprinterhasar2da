@@ -1,1 +1,0 @@
-# pyfiscalprinterhasar2da
